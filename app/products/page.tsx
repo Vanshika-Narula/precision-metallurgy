@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { products } from "../data/products.js";
+import { products } from "../data/products";
 
 type Product = {
   id: string;
