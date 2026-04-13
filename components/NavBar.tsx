@@ -31,7 +31,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* NAVBAR */}
       <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
