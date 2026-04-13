@@ -5,9 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Precision Metallurgy",
   description: "High-performance rolling mill rolls engineered for precision and durability.",
-  // icons: {
-  //   icon: "/images/logo/logo.png", 
-  // },
+ 
 };
 
 export default function RootLayout({
@@ -17,10 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* 👇 FORCE favicon */}
-        <link rel="icon" href="/images/logo/logo.png" />
-      </head>
+    
       <body className="bg-[#0B0D10] text-white">
 
         {/* Navbar (Global) */}

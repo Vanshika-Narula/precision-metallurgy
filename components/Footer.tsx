@@ -68,7 +68,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Precision Metallurgy. All rights reserved.</p>
           <div className="flex gap-3">
   <Link
-    href="#"
+    href="https://www.facebook.com/p/Precision-Metallurgy-100090768490261/"
     className="group p-2 border border-white/10 rounded-md transition duration-300 hover:border-blue-500 hover:bg-blue-500/10"
   >
     <Facebook
@@ -78,7 +78,7 @@ export default function Footer() {
   </Link>
 
   <Link
-    href="#"
+    href="https://www.linkedin.com/company/precision-metallurgy-india-private-limited/posts/?feedView=all"
     className="group p-2 border border-white/10 rounded-md transition duration-300 hover:border-blue-500 hover:bg-blue-500/10"
   >
     <Linkedin
@@ -98,7 +98,7 @@ export default function Footer() {
   </Link>
 
   <Link
-    href="#"
+    href="https://www.instagram.com/precisionmetallurgy/"
     className="group p-2 border border-white/10 rounded-md transition duration-300 hover:border-blue-500 hover:bg-blue-500/10"
   >
     <Instagram
