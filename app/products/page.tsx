@@ -4,12 +4,21 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { products } from "../data/products.js";
 
+type Product = {
+  id: string;
+  name: string;
+  category: string;
+  image: string;
+  description: string;
+  specs: string;
+};
+
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState(null);
-  const [quoteProduct, setQuoteProduct] = useState(null);
+  const [selected, setSelected] = useState<Product | null>(null);
+  const [quoteProduct, setQuoteProduct] = useState<Product | null>(null);
 
-  const filtered = products.filter((p) =>
+  const filtered = products.filter((p: Product) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -30,7 +39,7 @@ export default function ProductsPage() {
         Our Products
       </motion.h1>
 
-      {/* 🔍 Premium Search */}
+      {/* Search */}
       <div className="flex justify-center mb-12">
         <div className="relative w-full sm:w-2/3 md:w-1/2">
 
@@ -55,17 +64,14 @@ export default function ProductsPage() {
             bg-white/5 border border-white/10 backdrop-blur-xl
             text-white placeholder-gray-400
             outline-none transition-all duration-300
-            focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30
-            shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+            focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
           />
-
         </div>
       </div>
 
-      {/* Product Grid */}
+      {/* Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-        {filtered.map((product, index) => (
+        {filtered.map((product: Product, index: number) => (
           <motion.div
             key={product.id}
             initial={{ opacity: 0, y: 40 }}
@@ -93,31 +99,18 @@ export default function ProductsPage() {
             </div>
           </motion.div>
         ))}
-
       </div>
 
-      {/* Empty state */}
-      {filtered.length === 0 && (
-        <p className="text-center text-gray-500 mt-10">
-          No products found.
-        </p>
-      )}
-
-      {/* PRODUCT DETAIL MODAL */}
+      {/* Product Modal */}
       {selected && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
-
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             className="bg-[#0B0D10] rounded-xl max-w-lg w-full overflow-hidden border border-white/10"
           >
             <div className="h-52 overflow-hidden">
-              <img
-                src={selected.image}
-                alt={selected.name}
-                className="w-full h-full object-cover"
-              />
+              <img src={selected.image} alt={selected.name} className="w-full h-full object-cover" />
             </div>
 
             <div className="p-5">
@@ -131,14 +124,12 @@ export default function ProductsPage() {
                 {selected.specs}
               </p>
 
-              {/* Request Quote */}
               <button
                 onClick={() => {
-                  setSelected(null);
                   setQuoteProduct(selected);
+                  setSelected(null);
                 }}
-                className="mt-5 w-full bg-blue-600 py-2 rounded-md text-sm font-medium
-                active:scale-95 transition"
+                className="mt-5 w-full bg-blue-600 py-2 rounded-md"
               >
                 Request Quote
               </button>
@@ -154,16 +145,14 @@ export default function ProductsPage() {
         </div>
       )}
 
-      {/* QUOTE MODAL */}
+      {/* Quote Modal */}
       {quoteProduct && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
-
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             className="bg-[#0B0D10] rounded-xl max-w-md w-full p-6 border border-white/10"
           >
-
             <h2 className="text-xl font-semibold mb-4">
               Request a Quote
             </h2>
@@ -178,10 +167,7 @@ export default function ProductsPage() {
               className="input mt-3 text-blue-400"
             />
 
-            <textarea
-              placeholder="Your requirements..."
-              className="input mt-3"
-            />
+            <textarea placeholder="Your requirements..." className="input mt-3" />
 
             <button className="mt-4 w-full bg-blue-600 py-2 rounded-md">
               Submit Request
@@ -193,7 +179,6 @@ export default function ProductsPage() {
             >
               Close
             </button>
-
           </motion.div>
         </div>
       )}

@@ -22,7 +22,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const linkClass = (path) =>
+  const linkClass = (path: string) =>
     `transition ${
       pathname === path
         ? "text-blue-400"
