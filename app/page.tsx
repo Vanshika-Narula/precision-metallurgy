@@ -82,7 +82,7 @@ export default function Home() {
     >
       {/* Primary CTA */}
       <Link
-        href="#"
+        href="/products"
         className="group relative w-full sm:w-auto px-6 py-3 text-sm font-semibold tracking-wide rounded-md text-white
         bg-gradient-to-r from-blue-600 to-blue-500
         shadow-[0_8px_30px_rgba(37,99,235,0.35)]
